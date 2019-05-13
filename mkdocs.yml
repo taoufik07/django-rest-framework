@@ -81,3 +81,4 @@ pages:
      - 'Funding': 'community/funding.md'
      - 'Jobs': 'community/jobs.md'
      - 'Legacy CoreAPI Docs': 'coreapi/index.md'
+     - 'From Documenting your API': 'coreapi/from-documenting-your-api.md'

@@ -24,6 +24,5 @@ All CoreAPI related code will be removed in Django REST Framework v3.12. Switch 
 
 For reference this folder contains the old CoreAPI related documentation:
 
-* Excerpts from _Documenting your API_ topic page.
-* `rest_framework.documentation` API Reference.
+* [Excerpts from _Documenting your API_ topic page](/coreapi/from-documenting-your-api.md).
 * `rest_framework.schemas` API Reference.
