@@ -80,3 +80,4 @@ pages:
      - 'Mozilla Grant': 'community/mozilla-grant.md'
      - 'Funding': 'community/funding.md'
      - 'Jobs': 'community/jobs.md'
+     - 'Legacy CoreAPI Docs': 'coreapi/index.md'
