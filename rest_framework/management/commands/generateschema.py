@@ -22,13 +22,15 @@ class Command(BaseCommand):
             parser.add_argument('--format', dest="format", choices=['openapi', 'openapi-json', 'corejson'], default='openapi', type=str)
         else:
             parser.add_argument('--format', dest="format", choices=['openapi', 'openapi-json'], default='openapi', type=str)
+        parser.add_argument('--urlconf', dest="urlconf", default=None, type=str)
 
     def handle(self, *args, **options):
         generator_class = self.get_generator_class()
         generator = generator_class(
             url=options['url'],
             title=options['title'],
-            description=options['description']
+            description=options['description'],
+            urlconf=options['urlconf'],
         )
         schema = generator.get_schema(request=None, public=True)
         renderer = self.get_renderer(options['format'])
