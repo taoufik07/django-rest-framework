@@ -5,6 +5,7 @@
 from __future__ import unicode_literals
 
 import io
+import json
 from importlib import import_module
 
 from django.conf import settings
@@ -266,6 +267,16 @@ class APIClient(APIRequestFactory, DjangoClient):
         super(APIClient, self).__init__(**defaults)
         self.handler = ForceAuthClientHandler(enforce_csrf_checks)
         self._credentials = {}
+
+    def _parse_json(self, response, **extra):
+        if not hasattr(response, '_json'):
+            if not JSON_CONTENT_TYPE_RE.match(response.get('Content-Type')):
+                raise ValueError(
+                    'Content-Type header is "{0}", not "application/json"'
+                    .format(response.get('Content-Type'))
+                )
+            response._json = json.loads(response.content.decode(response.charset), **extra)
+        return response._json
 
     def credentials(self, **kwargs):
         """
